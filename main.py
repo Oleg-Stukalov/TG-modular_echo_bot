@@ -19,7 +19,7 @@ async def main() -> None:
     dp.include_router(user_handlers.router)
     dp.include_router(other_handlers.router)
 
-    # Skip stored updates and start polling
+    # Skip stored updates and start polling#
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
 
