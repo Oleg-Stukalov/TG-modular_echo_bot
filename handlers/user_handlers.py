@@ -1,15 +1,19 @@
-from aiogram.types import Message
+from aiogram import Router
 from aiogram.filters import Command, CommandStart
+from aiogram.types import Message
 from lexicon.lexicon_en import LEXICON_EN
 
 
+# Initialize module router
+router = Router()
+
 # Handler for /start command
-@dp.message(CommandStart())
+@router.message(CommandStart())
 async def process_start_command(message: Message):
-    await message.answer(text=LEXICON_RU['/start'])
+    await message.answer(text=LEXICON_EN['/start'])
 
 
 # Handler for /help command
-@dp.message(Command(commands='help'))
+@router.message(Command(commands='help'))
 async def process_help_command(message: Message):
-    await message.answer(text=LEXICON_RU['/help'])
+    await message.answer(text=LEXICON_EN['/help'])
